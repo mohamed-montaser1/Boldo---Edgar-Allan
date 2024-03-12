@@ -11,6 +11,7 @@
   transition-duration: 300ms;
   transition-timing-function: linear;
   font-family: "Open Sans", sans-serif;
+  background-color: transparent;
 }
 
 .btn--large {

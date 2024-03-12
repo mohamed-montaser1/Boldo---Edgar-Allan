@@ -42,13 +42,16 @@
         <nav class="navbar" id="navbar">
           <div class="container">
             <img src="./imgs/Logo.svg" alt="logo image" />
+            <button class="navbar-collapse-btn" id="navbar-collapse-btn">
+              <i class="fa-solid fa-bars"></i>
+            </button>
             <div class="links">
               <ul>
                 <li><a href="#product">Product</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
               </ul>
-              <button class="btn btn-white">Log In</button>
+              <button class="btn btn-white log-in">Log In</button>
             </div>
           </div>
         </nav>
@@ -132,7 +135,6 @@
             <button class="btn--large">Start now</button>
           </div>
         </div>
-
         <div class="container three">
           <div class="text">
             <h2>
@@ -154,7 +156,11 @@
               </li>
             </ul>
           </div>
-          <img src="./imgs/services-c3.svg" alt="services container 2 image" />
+          <img
+            src="./imgs/services-c3.svg"
+            alt="services container 2 image"
+            class="big"
+          />
         </div>
       </section>
       <!-- End Services -->
@@ -217,19 +223,6 @@
               <div class="row">
                 <div class="slide">
                   <h3>
-                    “Buyer buzz partner network disruptive non-disclosure
-                    agreement business”
-                  </h3>
-                  <div class="author">
-                    <img src="./imgs/author-4.jpg" alt="author 4" />
-                    <div class="text">
-                      <h4>Harry Potter</h4>
-                      <p>Team Leader @ Gryffindor</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="slide">
-                  <h3>
                     “Learning curve infrastructure value proposition advisor
                     strategy user experience hypotheses investor.”
                   </h3>
@@ -251,6 +244,19 @@
                     <div class="text">
                       <h4>Severus Snape</h4>
                       <p>Manager @ Slytherin</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="slide">
+                  <h3>
+                    “Buyer buzz partner network disruptive non-disclosure
+                    agreement business”
+                  </h3>
+                  <div class="author">
+                    <img src="./imgs/author-4.jpg" alt="author 4" />
+                    <div class="text">
+                      <h4>Harry Potter</h4>
+                      <p>Team Leader @ Gryffindor</p>
                     </div>
                   </div>
                 </div>
@@ -338,8 +344,8 @@
               <p>Rachel Green</p>
             </div>
           </div>
-          <button class="btn--large">Load more</button>
         </div>
+        <button class="btn--large">Load more</button>
       </section>
       <!-- End Blog -->
 
@@ -349,7 +355,13 @@
           <div class="content">
             <h2>An enterprise template to ramp up your company website</h2>
             <form>
-              <input type="text" placeholder="Your email address" />
+              <input
+                type="email"
+                placeholder="Your email address"
+                id="email"
+                name="email"
+                autocomplete="email"
+              />
               <button class="btn--large">Start Now</button>
             </form>
           </div>
@@ -360,7 +372,7 @@
       <!-- Start Footer -->
       <footer>
         <div class="container">
-          <div class="col">
+          <div class="col first">
             <img src="./imgs/logo-black.svg" alt="black logo" />
             <p class="long">
               Social media validation business model canvas graphical user

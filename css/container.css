@@ -1,6 +1,7 @@
 .container {
   padding-inline: 15px;
   margin-inline: auto;
+  box-sizing: border-box;
 }
 @media (max-width: 576px) {
   .container {
@@ -12,7 +13,7 @@
     width: 540px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .container {
     width: 720px;
   }

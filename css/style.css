@@ -1,5 +1,6 @@
 @import "./container.css";
 @import "./button-variations.css";
+@import "./responsive.css";
 
 :root {
   /* Start Colors */
@@ -40,7 +41,7 @@
 
 html,
 body {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 html {
@@ -81,6 +82,8 @@ header {
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Start Navbar Styles */
@@ -91,7 +94,7 @@ nav.navbar {
   align-items: center;
   background-color: transparent;
   position: relative;
-  z-index: 1;
+  z-index: 1000000;
 }
 nav.navbar .container {
   display: flex;
@@ -128,6 +131,9 @@ nav.navbar .container .links button {
 nav.navbar .container .links button:hover {
   color: var(--white);
   background-color: transparent;
+}
+.navbar .container .navbar-collapse-btn {
+  display: none;
 }
 /* End Navbar Styles */
 
@@ -189,22 +195,28 @@ nav.navbar .container .links button:hover {
   margin-top: 100px;
   display: flex;
   gap: 20px;
+  overflow-x: auto;
+}
+.hero .container.second::-webkit-scrollbar {
+  width: 0;
 }
 .hero .container.second::before {
   content: "";
-  width: 60%;
-  height: 60px;
+  width: 0;
+  height: 0;
   background-image: linear-gradient(to right, var(--dark-blue), transparent);
   position: absolute;
   left: -15px;
+  backdrop-filter: blur(3px);
 }
 .hero .container.second::after {
   content: "";
-  width: 60%;
-  height: 60px;
+  width: 0;
+  height: 0;
   background-image: linear-gradient(to left, var(--dark-blue), transparent);
   position: absolute;
   right: -15px;
+  backdrop-filter: blur(3px);
 }
 .hero .container.second img {
   width: 146.51px;
@@ -220,6 +232,7 @@ nav.navbar .container .links button:hover {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   place-items: center;
   margin-top: 80px;
+  row-gap: 30px;
 }
 .services .card h3 {
   font-size: var(--txt-m);
@@ -251,13 +264,13 @@ nav.navbar .container .links button:hover {
   width: 170px;
 }
 .services .container.two {
+  display: flex;
+  align-items: stretch;
   margin-top: 185px;
 }
 .services .container.two,
 .services .container.three {
-  display: flex;
-  gap: 150px;
-  align-items: stretch;
+  gap: 70px;
 }
 .services .container.two .text,
 .services .container.three .text {
@@ -295,9 +308,28 @@ nav.navbar .container .links button:hover {
   margin-top: 56px;
   background-color: var(--dark-blue);
   color: var(--white);
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
+}
+.services .container.two .text button:hover {
+  color: var(--dark-blue);
+  background-color: var(--white);
 }
 .services .container.three {
   margin-top: 120px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+}
+.services .container.three h2 {
+  max-width: 100%;
+}
+.services .container.three .text {
+  max-width: 100%;
+}
+.services .container.three img.big {
+  width: 100%;
 }
 .services .container.three ul {
   list-style: none;
@@ -306,12 +338,15 @@ nav.navbar .container .links button:hover {
 }
 .services .container.three ul li {
   height: 68px;
-  width: 500px;
+  max-width: 500px;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-left: 20px;
+  padding-inline: 20px;
   border-radius: 4px;
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
 }
 .services .container.three ul li:nth-child(1) {
   background-color: var(--dark-blue);
@@ -321,16 +356,19 @@ nav.navbar .container .links button:hover {
 
 /* Start Testimonials Styles */
 .testimonials {
-  height: 797px;
+  min-height: 797px;
   background-color: var(--dark-blue);
   padding-top: 98px;
+  padding-block: 53px;
+  overflow-x: hidden;
 }
 .testimonials h2 {
   color: var(--white);
-  font-size: var(--txt-xxl);
   font-weight: 400;
   font-family: var(--heading-font-family);
-  max-width: 716px;
+  width: 716px;
+  max-width: 95%;
+  font-size: clamp(var(--txt-l), var(--txt-xl), var(--txt-xxl));
 }
 .testimonials .slider {
   position: relative;
@@ -358,6 +396,9 @@ nav.navbar .container .links button:hover {
   overflow-x: auto;
   height: fit-content;
   scroll-behavior: smooth;
+  /* pointer-events: none; */
+  cursor: not-allowed;
+  user-select: none;
 }
 .testimonials .slider .slides-container::-webkit-scrollbar {
   width: 0;
@@ -365,7 +406,6 @@ nav.navbar .container .links button:hover {
 .testimonials .slider .slides-container .row {
   display: flex;
   gap: 20px;
-  width: 100%;
 }
 .testimonials .slider .slides-container .row:last-child {
   margin-left: 20px;
@@ -373,8 +413,8 @@ nav.navbar .container .links button:hover {
 .testimonials .slider .slides-container .slide {
   background-color: var(--white);
   padding: 40px;
-  width: fit-content;
-  width: 350px;
+  min-width: 350px !important;
+  width: 350px !important;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -440,6 +480,7 @@ nav.navbar .container .links button:hover {
   flex-direction: column;
   gap: 32px;
   list-style: none;
+  padding-left: 0;
 }
 .faqs .questions ul li {
   background-image: url("../imgs/faqs-arrow.svg");
@@ -455,6 +496,7 @@ nav.navbar .container .links button:hover {
 .blog {
   margin-top: 158px;
   height: fit-content;
+  position: relative;
 }
 .blog .container {
   display: grid;
@@ -514,18 +556,26 @@ nav.navbar .container .links button:hover {
   object-position: center top;
   border-radius: 50%;
 }
+.blog button.btn,
 .blog button.btn--large {
   width: fit-content;
-  position: absolute;
-  left: 50%;
-  bottom: -100px;
-  transform: translateX(-50%);
+  margin-inline: auto;
+  display: block;
+  margin-top: 60px;
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
+}
+.blog button.btn:hover,
+.blog button.btn--large:hover {
+  color: white;
+  background-color: var(--dark-blue);
 }
 /* End Blog Styles */
 
 /* Start NewsLetter Styles */
 .newsletter {
-  margin-top: 224px;
+  margin-top: 124px;
 }
 .newsletter .container {
   background-color: var(--dark-blue);
@@ -562,6 +612,7 @@ nav.navbar .container .links button:hover {
   text-align: center;
   width: 716px;
   line-height: 72px;
+  max-width: 100%;
 }
 .newsletter .content form {
   display: flex;
@@ -595,8 +646,9 @@ footer {
 footer .container {
   display: flex;
   justify-content: space-between;
+  gap: 80px;
 }
-footer .container .col:first-child {
+footer .container .col.first {
   width: 300px;
 }
 footer .container .col:first-child p.long,
@@ -609,9 +661,11 @@ footer .container .col:first-child p.long {
   margin-bottom: 72px;
 }
 footer .container .links-cols {
-  display: grid;
-  flex: 1;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 22px;
+  flex-grow: 1;
 }
 footer .container .links-cols .col {
   display: flex;
@@ -655,7 +709,5 @@ footer .container .links-cols .col ul li.badge::after {
   box-sizing: border-box;
   display: inline-block;
   margin-left: 5px;
-  /* position: absolute;
-  right: -10px; */
 }
 /* End Footer Styles */
