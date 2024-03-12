@@ -87,7 +87,7 @@ function handleResizeButtons(e) {
   } else {
     buttons.push(document.querySelector(".blog button.btn"));
     buttons.forEach(function (button) {
-      button.classList.replace("btn", "btn--large");
+      button?.classList?.replace("btn", "btn--large");
     });
   }
 }

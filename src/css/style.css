@@ -197,6 +197,15 @@ nav.navbar .container .links button:hover {
   gap: 20px;
   overflow-x: auto;
 }
+.hero .container.second marquee .row {
+  display: inline-block;
+}
+.hero .container.second marquee .row:first-child {
+  margin-right: 400px;
+}
+.hero .container.second marquee img {
+  margin-right: 20px;
+}
 .hero .container.second::-webkit-scrollbar {
   width: 0;
 }
@@ -296,7 +305,7 @@ nav.navbar .container .links button:hover {
 }
 .services .container.two .text ul li {
   font-size: var(--txt-s);
-  background-image: url("../imgs/list-icon.svg");
+  background-image: url("/imgs/list-icon.svg");
   background-size: 36px;
   background-repeat: no-repeat;
   background-position: left center;
@@ -483,7 +492,7 @@ nav.navbar .container .links button:hover {
   padding-left: 0;
 }
 .faqs .questions ul li {
-  background-image: url("../imgs/faqs-arrow.svg");
+  background-image: url("/imgs/faqs-arrow.svg");
   background-repeat: no-repeat;
   line-height: 29px;
   background-position: 100%;
